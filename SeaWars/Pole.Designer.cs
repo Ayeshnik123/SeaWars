@@ -58,6 +58,7 @@ namespace SeaWars
             this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView2.Size = new System.Drawing.Size(405, 221);
             this.dataGridView2.TabIndex = 7;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // dataGridView1
             // 

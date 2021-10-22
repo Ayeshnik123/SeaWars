@@ -20,8 +20,9 @@ namespace SeaWars
 
         private void Pole_Load(object sender, EventArgs e)
         {
-           
-
+            
+            dataGridView1.Enabled = false;
+            dataGridView2.Enabled = false;
             dataGridView1.ReadOnly = true; //запрет на ввод данных
             dataGridView2.ReadOnly = true; //запрет на ввод данных
 
@@ -131,17 +132,25 @@ namespace SeaWars
             dataGridView2.Rows[7].HeaderCell.Value = "8";
             dataGridView2.Rows[8].HeaderCell.Value = "9";
             dataGridView2.Rows[9].HeaderCell.Value = "10";
+            
+
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.dataGridView1.CurrentCell.Style.BackColor = Color.Red;
+            dataGridView1.Enabled = true;
+            dataGridView2.Enabled = true;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-     
+
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.dataGridView2.CurrentCell.Style.BackColor = Color.Red;
         }
     }
 }
