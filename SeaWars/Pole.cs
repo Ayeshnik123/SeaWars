@@ -20,7 +20,7 @@ namespace SeaWars
 
         private void Pole_Load(object sender, EventArgs e)
         {
-            
+            groupBox1.Visible = false;
             dataGridView1.Enabled = false;
             dataGridView2.Enabled = false;
             dataGridView1.ReadOnly = true; //запрет на ввод данных
@@ -132,25 +132,97 @@ namespace SeaWars
             dataGridView2.Rows[7].HeaderCell.Value = "8";
             dataGridView2.Rows[8].HeaderCell.Value = "9";
             dataGridView2.Rows[9].HeaderCell.Value = "10";
-            
+
+
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+                for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                {
+                    dataGridView1[i,j].Style.BackColor = Color.White;
+                }
+            for (int i = 0; i < dataGridView2.RowCount; i++)
+                for (int j = 0; j < dataGridView2.ColumnCount; j++)
+                {
+                    dataGridView2[i, j].Style.BackColor = Color.White;
+                }
+
+            groupBox1.Visible = false;
+            dataGridView1.Enabled = false;
+            dataGridView2.Enabled = false;
+
+
 
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.Enabled = true;
+            dataGridView1.Enabled = false;
             dataGridView2.Enabled = true;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (radioButton1.Checked)
+            {
+               this.dataGridView1.CurrentCell.Style.BackColor = Color.Black;
+            }
+            if (radioButton2.Checked)
+            {
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                    for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                    {
+                        dataGridView1.CurrentCell.Style.BackColor = Color.Black;
+                        int poskol = dataGridView1.CurrentCell.ColumnIndex;
+                        int posstr = dataGridView1.CurrentCell.RowIndex;
+                        dataGridView1[poskol + 1, posstr].Style.BackColor = Color.Black;
+                    }
+            }
+            if (radioButton3.Checked)
+            {
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                    for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                    {
+                        dataGridView1.CurrentCell.Style.BackColor = Color.Black;
+                        int poskol = dataGridView1.CurrentCell.ColumnIndex;
+                        int posstr = dataGridView1.CurrentCell.RowIndex;
+                        dataGridView1[poskol + 1, posstr].Style.BackColor = Color.Black;
+                        dataGridView1[poskol + 2, posstr].Style.BackColor = Color.Black;
+                    }
+            }
+            if (radioButton4.Checked)
+            {
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                    for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                    {
+                        dataGridView1.CurrentCell.Style.BackColor = Color.Black;
+                        int poskol = dataGridView1.CurrentCell.ColumnIndex;
+                        int posstr = dataGridView1.CurrentCell.RowIndex;
+                        dataGridView1[poskol + 1, posstr].Style.BackColor = Color.Black;
+                        dataGridView1[poskol + 2, posstr].Style.BackColor = Color.Black;
+                        dataGridView1[poskol + 3, posstr].Style.BackColor = Color.Black;
+                    }
+            }
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             this.dataGridView2.CurrentCell.Style.BackColor = Color.Red;
+        }
+
+        private void korabli_Click(object sender, EventArgs e)
+        {
+            groupBox1.Visible = true;
+            dataGridView1.Enabled = true;
+        }
+
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            this.dataGridView2.ClearSelection();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            this.dataGridView1.ClearSelection();
         }
     }
 }
