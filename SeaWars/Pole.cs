@@ -12,9 +12,11 @@ namespace SeaWars
 {
     public partial class Pole : Form
     {
+        int abv;
         public Pole()
         {
             InitializeComponent();
+
 
         }
 
@@ -144,8 +146,8 @@ namespace SeaWars
                 {
                     dataGridView2[i, j].Style.BackColor = Color.White;
                 }
-
             groupBox1.Visible = false;
+            korabli.Visible = true;
             dataGridView1.Enabled = false;
             dataGridView2.Enabled = false;
 
@@ -156,6 +158,9 @@ namespace SeaWars
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Bot.Pole(dataGridView2, abv);
+            groupBox1.Visible = false;
+            korabli.Visible = false;
             dataGridView1.Enabled = false;
             dataGridView2.Enabled = true;
         }
